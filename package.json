@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "dev": "npx tailwindcss -i edc_auditions/static/css/tailwind_src.css -o class_captain/static/css/tailwind.css --watch",
+    "build": "npx tailwindcss -i edc_auditions/static/css/tailwind_src.css -o class_captain/static/css/tailwind.css --build"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.6",
+    "tw-elements": "^1.0.0"
+  }
+}

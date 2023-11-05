@@ -1,0 +1,52 @@
+{% load static %}
+{% load socialaccount %}
+<nav
+  class="relative flex w-full items-center justify-between align-middle bg-slate-900 py-2 text-neutral-100 shadow-lg lg:flex-wrap lg:justify-start"
+  data-te-navbar-ref>
+  <div class="px-6 w-full h-fit">
+    <div
+      class="!visible flex-grow basis-[100%] items-center flex lg:basis-auto"
+      id="navbarSupportedContentY"
+      data-te-collapse-item>
+      <ul class="mr-auto flex flex-row w-full justify-between" data-te-navbar-nav-ref>
+        <li data-te-nav-item-ref class="my-auto">
+          <a
+            class="flex flex-row gap-2 align-middle py-1 pr-2 transition duration-150 ease-in-out hover:text-blue-300 lg:px-2"
+            href="{% url 'base:home' %}"
+            >
+            <img src="{% static 'images/favicons/favicon.ico' %}" alt="" class="w-8 h-8 my-auto">
+            <h4 class="font-primary text-xl uppercase my-auto hidden sm:block">EDC Auditions</h4>
+            </a
+          >
+        </li>
+        <ul class="flex flex-row align-middle font-secondary font-bold uppercase">
+        {% if not user.is_authenticated %}
+          <li class="my-auto mx-3">
+            <form action="#" method="post">
+              {% csrf_token %}
+              <button type="submit" class="tag">Login</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="my-auto mx-3">
+            <a href="#">Profile</a>
+          </li>
+          <li class="my-auto mx-3">
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+                <input type="hidden"
+                       name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="tag" type="submit">Logout</button>
+            </form>
+          </li>
+          {% endif %}
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script></script>
+<script src="{% static 'js/navbar.js' %}" defer></script>

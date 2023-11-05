@@ -1,0 +1,11 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=edc_auditions
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=EDCrocksDEV
+
+## local .env file variables
+DATABASE_URL=postgres://postgres:EDCrocksDEV@127.0.0.1:5432/edc_audtions
+USE_DOCKER=no
